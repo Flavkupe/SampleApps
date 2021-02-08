@@ -3,3 +3,11 @@
 .backdrop {
     /* background-image: url(/src/assets/pineapple.jpg); */
 }
+
+.data-text {
+    padding: 12px;
+    background-color:lightgray;
+    width: 300px;
+    margin-left: 32px;
+    margin-top: 16px;
+}
