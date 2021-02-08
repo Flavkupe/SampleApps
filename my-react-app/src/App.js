@@ -1,32 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
-import MyComponent from './MyComponent.jsx';
-import Button from './Button.jsx';
+import { Route, BrowserRouter as Router, Link, Switch } from 'react-router-dom';
+import Home from './pages/home';
+import MainPage from './pages/main-page';
+import OtherPage from './pages/other-page';
+import CSSBackdrop from './pages/css-backdrop';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/mainpage">Main page</Link>
+            </li>
+            <li>
+              <Link to="/otherpage">Other page</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-        <MyComponent></MyComponent>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React NOW
-        </a>
-
-        <Button ></Button>
-      </header>
-
-    </div>
+      <Switch>
+        <Route path="/mainpage">
+          <MainPage />
+        </Route>
+        <Route path="/otherpage">
+          <OtherPage />
+        </Route>
+        <Route path="/cssbackdrop">
+          <CSSBackdrop />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
