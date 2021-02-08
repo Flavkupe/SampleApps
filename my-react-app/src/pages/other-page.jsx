@@ -7,11 +7,11 @@ function OtherPage() {
     React.useEffect(() => {
         fetch("/api/getdata").catch((err) => {
             console.error(err);
-        }).then(async (a) => {
-            const data = await a.json();
-            
-            console.log("data", data);
-            setDataState(data.theData);
+        }).then((response) => {
+            response.json().then((result) => {
+                console.log("data", result);
+                setDataState(result.theData);
+            })
         });
     }, []);
 
