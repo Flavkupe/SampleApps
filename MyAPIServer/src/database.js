@@ -8,8 +8,9 @@ function readData() {
     });
 }
 
-function writeData() {
-
+function writeData(stuffToWrite) {
+    fs.writeFileSync('info.txt', stuffToWrite);
+    console.log("Wrote stuff to the file");
 }
 
 module.exports = {

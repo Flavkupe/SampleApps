@@ -15,6 +15,24 @@ function OtherPage() {
         });
     }, []);
 
+
+    function whenButtonIsClicked() {
+        const element = document.getElementById("myinput");
+        const value = element.value;
+        console.log("Button was clicked: ", value);
+
+        const data = { mydata: value };
+
+        fetch("/api/senddata", {
+            method: "POST", // this one is optional for now
+            headers: {
+                'Content-Type': 'application/json'// this one is optional for now
+            },
+            body: JSON.stringify(data), // this one is required
+        });
+        // fetch("/api/senddata");
+    }
+
     return (
         <div>
             This is the other page.
@@ -23,6 +41,10 @@ function OtherPage() {
                     {dataState}
                 </div>
             </div>
+            <input id={"myinput"}></input>
+            <button onClick={() =>  { whenButtonIsClicked() } }>
+                Send data
+            </button>
         </div>
     )
 }
